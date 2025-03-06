@@ -2,6 +2,12 @@
 
 Este projeto é uma aplicação desenvolvida para o teste prático de Front-end da BeTalent. A aplicação consiste em uma tabela de colaboradores que exibe informações obtidas de uma API simulada utilizando `json-server`.
 
+## 🌐 Deploy na Vercel
+
+A aplicação foi implantada na Vercel e pode ser acessada através do seguinte link:
+
+🔗 [Aplicação na Vercel](https://challenge-frontend-betalent.vercel.app)
+
 ## 🚀 Tecnologias Utilizadas
 
 - ⚛️ **React** - Biblioteca para construção da interface.
@@ -57,7 +63,7 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
 │   ├── env.ts           # Variáveis de ambiente internas
 │   ├── vite-env.d.ts    # Tipagens globais para o Vite
 ├── db.json              # Banco de dados fake para a API
-├── .env.exemple         # Exemplo de arquivo de variáveis de ambiente
+├── .env.example         # Exemplo de arquivo de variáveis de ambiente
 ├── index.html           # Estrutura HTML base
 ├── package.json         # Dependências do projeto
 ├── pnpm-lock.yaml       # Arquivo de bloqueio do pnpm
@@ -74,23 +80,16 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
 Agora que o projeto está dockerizado, basta rodar um único comando para iniciar tudo.
 
 ### 📌 **Executar com Docker**
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/kaduh15/challenge-frontend-betalent.git
-   cd challenge-frontend-betalent
-   ```
-
-2. **Construa e inicie os containers**:
+1. **Construa e inicie os containers**:
    ```bash
    docker-compose up --build
    ```
 
-3. Acesse o projeto no navegador:  
+2. Acesse o projeto no navegador:  
    - Frontend: `http://localhost:5173`
    - API (`json-server`): `http://localhost:3000/employees`
 
-4. **Parar a execução**:
+3. **Parar a execução**:
    ```bash
    docker-compose down
    ```
@@ -100,8 +99,8 @@ Caso prefira rodar o projeto sem Docker, siga os passos abaixo:
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/kaduh15/challenge-frontend-betalent.git
-   cd challenge-frontend-betalent
+   git clone https://github.com/Kaduh15/betalent-challenge-frontend.git
+   cd betalent-challenge-frontend
    ```
 
 2. **Instale as dependências:**
@@ -109,14 +108,14 @@ Caso prefira rodar o projeto sem Docker, siga os passos abaixo:
    pnpm install
    ```
 
-3. **(Opcional) Crie um arquivo `.env` e defina a URL da API:**
+3. **Crie um arquivo `.env` e defina a URL da API:**
    ```
    VITE_API_URL=http://localhost:3000
    ```
 
 4. **Inicie a API simulada com `json-server`:**
    ```bash
-   pnpm dlx json-server --watch db.json --host 0.0.0.0
+   pnpm dlx json-server --watch db.json --host 0.0.0.0 --port 3000
    ```
 
 5. **Execute o frontend:**

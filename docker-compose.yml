@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "5173:5173"
+    depends_on:
+      - json-server
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  json-server:
+    image: clue/json-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db.json:/data/db.json
+    command: ["--watch", "/data/db.json", "--host", "0.0.0.0"]

@@ -9,6 +9,7 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
 - 🎨 **Tailwind CSS** - Framework para estilização responsiva.
 - 🔌 **json-server** - Simulação da API.
 - 📦 **TypeScript** - Tipagem estática para maior segurança no código.
+- 🐳 **Docker e Docker Compose** - Para rodar a aplicação com um único comando.
 
 ## 🎯 Funcionalidades Implementadas
 
@@ -21,6 +22,7 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
 - 🔍 **Campo de busca** que filtra os colaboradores por **nome, cargo e telefone**.
 - 📅 **Formatação de datas e números de telefone** no front-end.
 - 📱 **Design responsivo** para dispositivos móveis e desktop.
+- 🏗 **Ambiente Dockerizado** para facilitar a execução do projeto.
 
 ## 📂 Estrutura do Projeto
 
@@ -52,17 +54,49 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
 │   ├── App.tsx          # Componente principal
 │   ├── main.tsx         # Ponto de entrada da aplicação
 │   ├── styles.css       # Estilização global
+│   ├── env.ts           # Variáveis de ambiente internas
 │   ├── vite-env.d.ts    # Tipagens globais para o Vite
 ├── db.json              # Banco de dados fake para a API
+├── .env.exemple         # Exemplo de arquivo de variáveis de ambiente
 ├── index.html           # Estrutura HTML base
 ├── package.json         # Dependências do projeto
+├── pnpm-lock.yaml       # Arquivo de bloqueio do pnpm
 ├── tsconfig.json        # Configuração do TypeScript
 ├── vite.config.ts       # Configuração do Vite
 ├── .gitignore           # Arquivos ignorados pelo Git
+├── docker-compose.yml   # Configuração para Docker Compose
+├── Dockerfile           # Configuração do container Docker
 ├── README.md            # Documentação do projeto
 ```
 
 ## 🛠 Como Executar o Projeto
+
+Agora que o projeto está dockerizado, basta rodar um único comando para iniciar tudo.
+
+### 📌 **Executar com Docker**
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/kaduh15/challenge-frontend-betalent.git
+   cd challenge-frontend-betalent
+   ```
+
+2. **Construa e inicie os containers**:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Acesse o projeto no navegador:  
+   - Frontend: `http://localhost:5173`
+   - API (`json-server`): `http://localhost:3000/employees`
+
+4. **Parar a execução**:
+   ```bash
+   docker-compose down
+   ```
+
+### 🛠 **Executar Localmente (Sem Docker)**
+Caso prefira rodar o projeto sem Docker, siga os passos abaixo:
 
 1. **Clone o repositório:**
    ```bash
@@ -75,14 +109,27 @@ Este projeto é uma aplicação desenvolvida para o teste prático de Front-end 
    pnpm install
    ```
 
-3. **Inicie a API simulada com `json-server`:**
-   ```bash
-   pnpm dlx json-server --watch db.json
+3. **(Opcional) Crie um arquivo `.env` e defina a URL da API:**
+   ```
+   VITE_API_URL=http://localhost:3000
    ```
 
-4. **Execute o projeto:**
+4. **Inicie a API simulada com `json-server`:**
+   ```bash
+   pnpm dlx json-server --watch db.json --host 0.0.0.0
+   ```
+
+5. **Execute o frontend:**
    ```bash
    pnpm dev
    ```
 
-5. Acesse o projeto no navegador: `http://localhost:5173`
+## 📌 Requisitos Atendidos
+
+- [x] Consumo de API com `json-server`.
+- [x] Pesquisa e filtros na tabela.
+- [x] Layout responsivo para desktop e mobile.
+- [x] Formatação de datas e telefones.
+- [x] Código organizado seguindo boas práticas.
+- [x] Uso de TypeScript.
+- [x] Dockerização do projeto para facilitar a execução. (Extra)

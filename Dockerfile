@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 5173 3000
 
 # Inicia os serviços usando um script
-CMD ["sh", "-c", "pnpm dlx json-server --watch db.json --host 0.0.0.0 & pnpm dev"]
+CMD ["sh", "-c", "pnpm dev"]

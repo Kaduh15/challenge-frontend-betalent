@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { Employee } from "../../App";
 import { EmployeeRow } from "./EmployeeRow";
 import { TableHeader } from "./TableHeader";
+import type { Employee } from "../../@types/employee";
 
 type TableMobileProps = {
 	employees: Employee[];

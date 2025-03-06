@@ -1,4 +1,4 @@
-import type { Employee } from "../../App";
+import type { Employee } from "../../@types/employee";
 import ChevronDown from "../../assets/chevron-down.svg";
 import ChevronUp from "../../assets/chevron-up.svg";
 import { EmployeeDetails } from "./EmployeeDetails";
